@@ -1,1 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans default-lazy-init="true">
+
+    <bean id="mostrarListaFormularios" class="org.springframework.web.servlet.view.JstlView">
+        <property name="url">
+            <value>/edoctor/formularios/mostrarListaFormularios.jsp</value>
+        </property>
+    </bean>
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.JsonView"/>
+</beans>
