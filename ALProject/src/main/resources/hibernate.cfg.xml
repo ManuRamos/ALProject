@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="omnogar">
+        <property name="hibernate.jdbc.use_get_generated_keys">true</property>
+        <!--Database connection settings -->
+        <property name="hibernate.connection.datasource">jdbc/imaestros</property>
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">100</property>
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</property>
+        <!--
+        <property name="hibernate.dialect">org.hibernate.dialect.Informix11Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgresPlusDialect</property>-->
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+  <!-- Disable the second-level cache
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+ Enable the second-level cache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>
+ <!-- comentamos el ehcache, de esta forma es necesario indicar el nombre el fichero en el arranque del jboss  <property name="net.sf.ehcache.configurationResourceName">/ehcache.xml</property> -->
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <!-- Echo all executed SQL to stdout -->
+
+        <property name="show_sql">false</property>
+        <property name="hibernate.format_sql">true</property>
+  <!--property name="use_sql_comments">true</property
+ Drop and re-create the database schema on startup
+<property name="hbm2ddl.auto">update</property>
+ Se establece que va a ser la aplicacion quien va a realizar el flush() o el
+             commit() sobre la sesion en vez de dejar a hibernate que la gestione la por su cuenta.
+             Esta estrategia va a ser util en el filtro 'HibernateSessionFilter'
+        <property name="hibernate.current_session_context_class">managed</property> -->
+        <mapping resource="com/hphis/enfermeria/plan/agenda/factory/impl/PersistantRegla.hbm.xml"/>
+
+        <!-- Listeners -->
+
+        <event type="save-update">
+            <listener class="com.hphis.enfermeria.dao.HibernateSaveOrUpdateEventListener"/>
+        </event>
+        <event type="post-commit-insert">
+            <listener class="com.hphis.workflow.observer.listener.HibernatePostCommitEventTareaListener"/>
+        </event>
+        <event type="post-commit-update">
+            <listener class="com.hphis.workflow.observer.listener.HibernatePostCommitEventTareaListener"/>
+        </event>                      
+    </session-factory>
+</hibernate-configuration>
