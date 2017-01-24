@@ -3,7 +3,7 @@
 <beans>
 
 	<!--Bean para instanciarlo desde clases que no usan Spring-->
-    <bean id="customServiceLocator" class="com.hphis.custom.outpatient.listados.service.CustomServiceLocator" lazy-init="false"/>
+<!--     <bean id="customServiceLocator" class="com.hphis.custom.outpatient.listados.service.CustomServiceLocator" lazy-init="false"/> -->
 
     <!-- Mapeador de urls -->
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -17,7 +17,7 @@
     <!-- Solucionador de Vistas -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
         <property name="location">
-            <value>/WEB-INF/CustomServletViews.xml</value>
+            <value>/WEB-INF/alpServletViews.xml</value>
         </property>
     </bean>
 
