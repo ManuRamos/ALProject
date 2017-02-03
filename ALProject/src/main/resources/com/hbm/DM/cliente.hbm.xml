@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.hbm.impl.Cliente" table="CLIENTE">
+       <id
+            name="id"
+            type="java.lang.Long"
+            column="CODIGO">
+            <generator class="sequence">
+                <param name="sequence">S_GEN_AGENDA_REGLA</param>
+            </generator>
+        </id>
+
+        <discriminator column="TIPO" type="java.lang.String"
+           formula = "CASE
+                        WHEN TIPO = '1' THEN 'DIAGNOSTICO'
+                        WHEN TIPO = '2' THEN 'COMPLICACION'
+                        WHEN TIPO = '3' THEN 'DOCUMENTO'
+                        WHEN TIPO = '4' THEN 'AGRUPADOR'
+                        WHEN TIPO = '5' THEN 'AGRUPADOR'
+                      END"/>
+
+        <property
+            name="nombre"
+            type="java.lang.String"
+            column="NOMBRE"
+            length="255"
+            not-null="true"/>
+
+
+        <many-to-one
+            name="tipo"
+            lazy = "false"
+            class="com.hphis.enfermeria.plan.agenda.factory.impl.TipoRegla"
+            not-null="true">
+            <column name="TIPO" />
+        </many-to-one>
+
+
+        <set name="condiciones"
+            lazy="true"
+            cascade="all">
+            <key column="REGLA" not-null="true" />
+            <one-to-many class="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantCondition"/>
+        </set>
+
+        <subclass name="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantReglaDiagnostico" discriminator-value="DIAGNOSTICO">
+            <many-to-one
+                name="diagnostico"
+                entity-name="diagnostico"
+                property-ref="codigoElemento"
+                not-null="true">
+                <column name="VALOR"/>
+            </many-to-one>
+        </subclass>
+
+        <subclass name="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantReglaComplicacion" discriminator-value="COMPLICACION">
+            <many-to-one
+                name="complicacion"
+                entity-name="complicacion"
+                property-ref="codigoElemento"
+                not-null="true">
+                <column name="VALOR" />
+            </many-to-one>
+        </subclass>
+
+        <subclass name="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantReglaDocumento" discriminator-value="DOCUMENTO">
+            <property name="valor"
+                column="VALOR"
+                type="java.lang.String">
+            </property>
+        </subclass>
+
+        <subclass name="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantReglaAgrObx" discriminator-value="AGRUPADOR">
+            <property name="valor"
+                column="VALOR"
+                type="java.lang.String">
+            </property>
+        </subclass>
+
+
+    </class>
+</hibernate-mapping>

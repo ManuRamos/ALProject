@@ -34,7 +34,7 @@
              commit() sobre la sesion en vez de dejar a hibernate que la gestione la por su cuenta.
              Esta estrategia va a ser util en el filtro 'HibernateSessionFilter'
         <property name="hibernate.current_session_context_class">managed</property> -->
-        <mapping resource="com/hphis/enfermeria/plan/agenda/factory/impl/PersistantRegla.hbm.xml"/>
+        <mapping resource="com/hbm/DM/cliente.hbm.xml"/>
 
         <!-- Listeners -->
 
