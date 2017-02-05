@@ -6,81 +6,115 @@
 <hibernate-mapping>
     <class name="com.hbm.impl.Cliente" table="CLIENTE">
        <id
-            name="id"
-            type="java.lang.Long"
-            column="CODIGO">
+            name="ident"
+            type="java.lang.Integer"
+            column="IDENT">
             <generator class="sequence">
-                <param name="sequence">S_GEN_AGENDA_REGLA</param>
+                <param name="sequence">S_CLIENTE</param>
             </generator>
         </id>
-
-        <discriminator column="TIPO" type="java.lang.String"
-           formula = "CASE
-                        WHEN TIPO = '1' THEN 'DIAGNOSTICO'
-                        WHEN TIPO = '2' THEN 'COMPLICACION'
-                        WHEN TIPO = '3' THEN 'DOCUMENTO'
-                        WHEN TIPO = '4' THEN 'AGRUPADOR'
-                        WHEN TIPO = '5' THEN 'AGRUPADOR'
-                      END"/>
 
         <property
             name="nombre"
             type="java.lang.String"
             column="NOMBRE"
-            length="255"
             not-null="true"/>
 
+        <property
+            name="apellido1"
+            type="java.lang.String"
+            column="APELLIDO1"
+            not-null="true"/>
 
-        <many-to-one
-            name="tipo"
-            lazy = "false"
-            class="com.hphis.enfermeria.plan.agenda.factory.impl.TipoRegla"
-            not-null="true">
-            <column name="TIPO" />
-        </many-to-one>
+        <property
+            name="apellido2"
+            type="java.lang.String"
+            column="APELLIDO2"
+            not-null="true"/>
 
+        <property
+            name="dni"
+            type="java.lang.String"
+            column="DNI"
+            not-null="true"/>
 
-        <set name="condiciones"
-            lazy="true"
-            cascade="all">
-            <key column="REGLA" not-null="true" />
-            <one-to-many class="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantCondition"/>
-        </set>
+        <property
+            name="clase"
+            type="char"
+            column="CLASE"
+            not-null="false"/>
 
-        <subclass name="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantReglaDiagnostico" discriminator-value="DIAGNOSTICO">
-            <many-to-one
-                name="diagnostico"
-                entity-name="diagnostico"
-                property-ref="codigoElemento"
-                not-null="true">
-                <column name="VALOR"/>
-            </many-to-one>
-        </subclass>
+        <property
+            name="medioDeContacto"
+            type="java.lang.Integer"
+            column="MEDIO_CONTACTO"
+            not-null="true"/>
 
-        <subclass name="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantReglaComplicacion" discriminator-value="COMPLICACION">
-            <many-to-one
-                name="complicacion"
-                entity-name="complicacion"
-                property-ref="codigoElemento"
-                not-null="true">
-                <column name="VALOR" />
-            </many-to-one>
-        </subclass>
+        <property
+            name="comentarioContacto"
+            type="java.lang.String"
+            column="COMENTARIO_CONTACTO"
+            not-null="false"/>
 
-        <subclass name="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantReglaDocumento" discriminator-value="DOCUMENTO">
-            <property name="valor"
-                column="VALOR"
-                type="java.lang.String">
-            </property>
-        </subclass>
+        <property
+            name="direccion"
+            type="java.lang.String"
+            column="DIRECCION"
+            not-null="false"/>
 
-        <subclass name="com.hphis.enfermeria.plan.agenda.factory.impl.PersistantReglaAgrObx" discriminator-value="AGRUPADOR">
-            <property name="valor"
-                column="VALOR"
-                type="java.lang.String">
-            </property>
-        </subclass>
+        <property
+            name="cp"
+            type="java.lang.String"
+            column="CP"
+            not-null="false"/>
 
+        <property
+            name="fechaNac"
+            type="java.sql.Date"
+            column="FECHA_NAC"
+            not-null="true"/>
 
+        <property
+            name="localidad"
+            type="java.lang.String"
+            column="LOCALIDAD"
+            not-null="false"/>
+
+        <property
+            name="provincia"
+            type="java.lang.Integer"
+            column="PROVINCIA"
+            not-null="false"/>
+
+        <property
+            name="estadoCivil"
+            type="java.lang.Integer"
+            column="ESTADO_CIVIL"
+            not-null="false"/>
+
+        <property
+            name="conyuge"
+            type="java.lang.Integer"
+            column="CONYUGE"
+            not-null="false"/>
+
+        <property
+            name="sexo"
+            type="char"
+            column="SEXO"
+            not-null="false"/>
+
+        <property
+            name="email"
+            type="java.lang.String"
+            column="EMAIL"
+            not-null="false"/>
+
+        <property
+            name="documento"
+            type="java.lang.String"
+            column="DOCUMENTO"
+            not-null="false"/>
+            
     </class>
 </hibernate-mapping>

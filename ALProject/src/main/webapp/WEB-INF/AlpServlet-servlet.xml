@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<!--Bean para instanciarlo desde clases que no usan Spring-->
 <!--     <bean id="customServiceLocator" class="com.hphis.custom.outpatient.listados.service.CustomServiceLocator" lazy-init="false"/> -->
@@ -9,7 +12,7 @@
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="/custom/cex/*.custom">CustomsCexController</prop>
+                <prop key="/ocaso/*.alp">OcasoController</prop>
             </props>
         </property>
     </bean>
@@ -17,45 +20,34 @@
     <!-- Solucionador de Vistas -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
         <property name="location">
-            <value>/WEB-INF/alpServletViews.xml</value>
+            <value>/WEB-INF/AlpServletViews.xml</value>
         </property>
     </bean>
 
 	<!-- inicio dgonzalez. mantisCAT 29179 -->
-	<bean id="CustomsCexController" class="org.springframework.web.servlet.mvc.multiaction.MultiActionController">
+	<bean id="OcasoController" class="org.springframework.web.servlet.mvc.multiaction.MultiActionController">
         <property name="methodNameResolver">
-            <ref bean="CustomsCexNameResolver"/>
+            <ref bean="OcasoNameResolver"/>
         </property>
         <property name="delegate">
-            <ref bean="CustomsCexDelegate"/>
+            <ref bean="OcasoCexDelegate"/>
         </property>
     </bean>
 
-    <bean id="CustomsCexNameResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+    <bean id="OcasoNameResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
         <property name="mappings">
             <props>
-            	<prop key="/custom/cex/mostrarPrestSerAgendaIntPt.custom">mostrarPrestSerAgendaIntPt</prop>
-            	<prop key="/custom/cex/listarPrestSerAgendaIntPt.custom">listarPrestSerAgendaIntPt</prop>
-            	<prop key="/custom/cex/crearPrestSerAgendaIntPt.custom">crearPrestSerAgendaIntPt</prop>
-            	<prop key="/custom/cex/editarPrestSerAgendaIntPt.custom">editarPrestSerAgendaIntPt</prop>
-            	<prop key="/custom/cex/salvarPrestSerAgendaIntPt.custom">salvarPrestSerAgendaIntPt</prop>
-            	<prop key="/custom/cex/eliminarPrestSerAgendaIntPt.custom">eliminarPrestSerAgendaIntPt</prop>
+            	<prop key="/ocaso/almacenar.alp">almacenar</prop>
             </props>
         </property>
     </bean>
 
-    <bean id="CustomsCexDelegate" class="com.hphis.custom.cex.action.CustomsCexAction">
-    	<property name="cexPrestSerAgendaIntPtService">
-            <ref bean="cexPrestSerAgendaIntPtService"/>
-        </property>
+    <bean id="OcasoCexDelegate" class="com.ocaso.action.OcasoActions">
+<!--     	<property name="cexPrestSerAgendaIntPtService"> -->
+<!--             <ref bean="cexPrestSerAgendaIntPtService"/> -->
+<!--         </property> -->
     </bean>
-
-	<bean id="cexPrestSerAgendaIntPtService" class="com.hphis.custom.cex.service.impl.CexPrestSerAgendaIntPtServiceImpl">
-		<property name="cexPrestSerAgendaIntPtDAO">
-			<ref bean="cexPrestSerAgendaIntPtDAO"/>
-		</property>
-	</bean>
-	<bean id="cexPrestSerAgendaIntPtDAO" class="com.hphis.custom.cex.dao.impl.CexPrestSerAgendaIntPtDAOImpl"/>
+<!-- 	<bean id="cexPrestSerAgendaIntPtDAO" class="com.hphis.custom.cex.dao.impl.CexPrestSerAgendaIntPtDAOImpl"/> -->
 	
 
 </beans>

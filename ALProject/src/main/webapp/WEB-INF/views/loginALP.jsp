@@ -10,7 +10,7 @@
 <script>
 
 function lanzarHibernate(){
-	var urlstr="ALProject/ocaso/almacenar.alp";
+	var urlstr="/ocaso/almacenar.alp";
 	
     $.ajax({
         type: "post",
@@ -18,14 +18,10 @@ function lanzarHibernate(){
         dataType: "json",
         success: function(){      
                 alert("ok");
-        },error: function(msg){
-				alert(msg);
+        },error: function(){
+				alert("error");
             }
     });
-}
-
-function error(msg){
-	
 }
 </script>
 <body>

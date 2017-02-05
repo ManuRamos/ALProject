@@ -12,10 +12,10 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>AlpServlet</servlet-name>
-		<url-pattern>*.alp</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-		<welcome-file-list>
+	<welcome-file-list>
 		<welcome-file>LoginALP.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
