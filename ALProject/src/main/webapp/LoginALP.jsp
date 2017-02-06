@@ -5,16 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<!-- <script type='text/javascript' src='/ALProject/includes/javascript/jquery/jquery.min.js'></script> -->
+<!-- <script type='text/javascript' src='/ALProject/includes/javascript/ajax.js'></script> -->
+<script type='text/javascript' src='<%request.getContextPath();%>/includes/javascript/jquery/jquery.js'></script>
+
+<!-- <script type='text/javascript' src='/ALPrpject/jquery.js'></script> -->
 </head>
 <script>
 
 function lanzarHibernate(){
 	var urlstr="ALProject/ocaso/almacenar.alp";
 	
-    $.ajax({
-        type: "post",
-        url: urlstr, //this is my servlet
+    new Ajax.Request( urlstr,{
+        method: "post",
+        //url: urlstr, //this is my servlet
         dataType: "json",
         success: function(){      
                 alert("ok");
@@ -24,7 +28,7 @@ function lanzarHibernate(){
     });
 }
 
-function error(msg){
+function errorfunc(msg){
 	
 }
 </script>
