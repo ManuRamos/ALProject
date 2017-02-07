@@ -45,11 +45,11 @@
 		    <artifactId>hibernate-core</artifactId>
 		    <version>${hibernate.version}</version>
 		</dependency>		
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>12.1.0</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.oracle</groupId> -->
+<!-- 			<artifactId>ojdbc6</artifactId> -->
+<!-- 			<version>12.1.0</version> -->
+<!-- 		</dependency> -->
   </dependencies>
   <build>
     <finalName>ALProject</finalName>

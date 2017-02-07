@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+
+function lanzaPrueba(){
+	alert("yo");
+}
