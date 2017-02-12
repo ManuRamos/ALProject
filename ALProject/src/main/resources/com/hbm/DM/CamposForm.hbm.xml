@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-feb-2017 22:19:22 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.hbm.impl.CamposForm" table="CAMPOS_FORM">
+        <id name="ident" type="java.lang.Integer">
+            <column name="IDENT" />
+            <generator class="sequence">
+                <param name="sequence">S_CAMPOS_FORM</param>
+            </generator>
+        </id>
+        <property name="nombreCampo" type="java.lang.String">
+            <column name="NOMBRECAMPO" />
+        </property>
+        <property name="rotulo" type="java.lang.String">
+            <column name="ROTULO" />
+        </property>
+        <property name="tipo" type="java.lang.Integer">
+            <column name="TIPO" />
+        </property>
+        <property name="longitud" type="java.lang.Integer">
+            <column name="LONGITUD" />
+        </property>
+        <property name="usuario" type="java.lang.Integer">
+            <column name="USUARIO" />
+        </property>
+        <property name="visible_res" type="char">
+            <column name="VISIBLE_RES" />
+        </property>
+        <property name="visible_fil" type="char">
+            <column name="VISIBLE_FIL" />
+        </property>
+        <property name="orden" type="java.lang.Integer">
+            <column name="ORDEN" />
+        </property>
+        <property name="cod_formulario" type="java.lang.Integer">
+            <column name="COD_FORMULARIO" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-feb-2017 22:10:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.hbm.impl.Usuario" table="USUARIO">
+        <id name="ident" type="java.lang.Integer">
+            <column name="IDENT" />
+            <generator class="sequence">
+                <param name="sequence">S_USUARIO</param>
+            </generator>
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+        <property name="apellido1" type="java.lang.String">
+            <column name="APELLIDO1" />
+        </property>
+        <property name="apellido2" type="java.lang.String">
+            <column name="APELLIDO2" />
+        </property>
+        <property name="nick" type="java.lang.String">
+            <column name="NICK" />
+        </property>
+        <property name="pass" type="java.lang.String">
+            <column name="PASS" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+    </class>
+</hibernate-mapping>

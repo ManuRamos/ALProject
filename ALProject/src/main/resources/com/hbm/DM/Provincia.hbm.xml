@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-feb-2017 22:04:50 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.hbm.impl.Provincia" table="PROVINCIA">
+        <id name="ident" type="java.lang.Integer">
+            <column name="IDENT" />
+            <generator class="sequence">
+                <param name="sequence">S_PROVINCIA</param>
+            </generator>
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+    </class>
+</hibernate-mapping>

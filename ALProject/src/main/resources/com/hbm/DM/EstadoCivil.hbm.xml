@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-feb-2017 22:07:26 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.hbm.impl.EstadoCivil" table="ESTADO_CIVIL">
+        <id name="ident" type="java.lang.Integer">
+            <column name="IDENT" />
+            <generator class="sequence">
+                <param name="sequence">S_ESTADO_CIVIL</param>
+            </generator>
+        </id>
+        <property name="descripcion" type="java.lang.String">
+            <column name="DESCRIPCION" />
+        </property>
+    </class>
+</hibernate-mapping>

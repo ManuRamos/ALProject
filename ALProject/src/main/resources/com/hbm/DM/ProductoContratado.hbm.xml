@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-feb-2017 21:44:35 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.hbm.impl.ProductoContratado" table="PRODUCTO_CONTRATADO">
+        <id name="numPoliza" type="java.lang.Integer">
+            <column name="NUMPOLIZA" />
+            <generator class="sequence">
+                <param name="sequence">S_PROD_CONT</param>
+            </generator>
+        </id>
+        <property name="cliente" type="java.lang.Integer">
+            <column name="CLIENTE" />
+        </property>
+        <property name="fechaAlta" type="java.sql.Date">
+            <column name="FECHAEFECTO" />
+        </property>
+        <property name="fechaBaja" type="java.sql.Date">
+            <column name="FECHABAJA" />
+        </property>
+        <property name="Ramo" type="java.lang.Integer">
+            <column name="RAMO" />
+        </property>
+        <property name="nombreProducto" type="java.lang.Integer">
+            <column name="NOMBREPRODUCTO" />
+        </property>
+        <property name="Estado" type="java.lang.Integer">
+            <column name="ESTADO" />
+        </property>
+    </class>
+</hibernate-mapping>

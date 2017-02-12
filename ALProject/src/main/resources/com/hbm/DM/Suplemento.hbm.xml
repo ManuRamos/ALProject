@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-feb-2017 21:56:19 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.hbm.impl.Suplemento" table="SUPLEMENTO">
+        <id name="ident" type="java.lang.Integer">
+            <column name="IDENT" />
+            <generator class="sequence">
+                <param name="sequence">S_SUPLEMENTO</param>
+            </generator>
+        </id>
+        <property name="prod_pertenece" type="java.lang.Integer">
+            <column name="PROD_PERTENECE" />
+        </property>
+        <property name="activo" type="char">
+            <column name="ACTIVO" />
+        </property>
+        <property name="descripcion" type="java.lang.String">
+            <column name="DESCRIPCION" />
+        </property>
+    </class>
+</hibernate-mapping>
