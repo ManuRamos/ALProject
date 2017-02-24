@@ -11,13 +11,15 @@ public class CamposForm {
 	private char visible_fil;
 	private Integer orden;
 	private Integer cod_formulario;
+	private String clase;
+	private String bloque;
 	
 	public CamposForm(){
 		
 	}
 
 	public CamposForm(Integer ident, String nombreCampo, String rotulo, Integer tipo, Integer longitud, Integer usuario,
-			char visible_res, char visible_fil, Integer orden, Integer cod_formulario) {
+			char visible_res, char visible_fil, Integer orden, Integer cod_formulario, String clase, String bloque) {
 		super();
 		this.ident = ident;
 		this.nombreCampo = nombreCampo;
@@ -29,6 +31,8 @@ public class CamposForm {
 		this.visible_fil = visible_fil;
 		this.orden = orden;
 		this.cod_formulario = cod_formulario;
+		this.clase=clase;
+		this.bloque=bloque;
 	}
 
 	public Integer getIdent() {
@@ -109,6 +113,22 @@ public class CamposForm {
 
 	public void setCod_formulario(Integer cod_formulario) {
 		this.cod_formulario = cod_formulario;
+	}
+
+	public String getClase() {
+		return clase;
+	}
+
+	public void setClase(String clase) {
+		this.clase = clase;
+	}
+
+	public String getBloque() {
+		return bloque;
+	}
+
+	public void setBloque(String bloque) {
+		this.bloque = bloque;
 	}
 	
 }
