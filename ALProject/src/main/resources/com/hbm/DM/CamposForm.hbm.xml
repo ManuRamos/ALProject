@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 12-feb-2017 22:19:22 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 25-feb-2017 18:37:47 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.hbm.impl.CamposForm" table="CAMPOS_FORM">
         <id name="ident" type="java.lang.Integer">
@@ -36,6 +36,12 @@
         </property>
         <property name="cod_formulario" type="java.lang.Integer">
             <column name="COD_FORMULARIO" />
+        </property>
+        <property name="clase" type="java.lang.String">
+            <column name="CLASE" />
+        </property>
+        <property name="bloque" type="java.lang.String">
+            <column name="BLOQUE" />
         </property>
     </class>
 </hibernate-mapping>

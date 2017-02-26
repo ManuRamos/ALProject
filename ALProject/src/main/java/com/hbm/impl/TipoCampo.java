@@ -1,5 +1,7 @@
 package com.hbm.impl;
 
+import java.util.HashMap;
+
 public class TipoCampo {
 	private Integer ident;
 	private String nombre;
@@ -12,6 +14,12 @@ public class TipoCampo {
 		super();
 		this.ident = ident;
 		this.nombre = nombre;
+	}
+
+	public TipoCampo(HashMap<String, Object> fieldList) {
+		super();
+		this.ident = (Integer) fieldList.get("ident");
+		this.nombre = (String) fieldList.get("nombre");
 	}
 
 	public Integer getIdent() {

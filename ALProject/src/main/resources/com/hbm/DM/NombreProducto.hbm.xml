@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 12-feb-2017 21:50:21 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.hbm.impl.NOMBREPRODUCTO" table="NOMBREPRODUCTO">
+    <class name="com.hbm.impl.NombreProducto" table="NOMBREPRODUCTO">
         <id name="ident" type="java.lang.Integer">
             <column name="IDENT" />
             <generator class="sequence">

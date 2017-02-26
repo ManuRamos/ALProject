@@ -1,6 +1,9 @@
 package com.hbm.impl;
 
+import java.lang.reflect.Method;
 import java.sql.Date;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Cliente {
 
@@ -25,7 +28,33 @@ public class Cliente {
 	
 	public Cliente(){
 		
-	}	
+	}
+	
+	public Cliente(HashMap<String, Object> fieldList){
+		
+		for(Entry<String, Object> entry : fieldList.entrySet()){
+        	String key=entry.getKey(); 
+        	
+        	if(key.equals("sexo")){
+        		this.setSexo((char)entry.getValue());
+        	}else if(key.equals("clase")){
+        		this.setClase((char)entry.getValue());
+        	}else{			
+	        	
+	        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
+	
+	    		Method method;
+				try {
+	
+					method = this.getClass().getDeclaredMethod("set"+mapKey,entry.getValue().getClass());
+		    		method.invoke(this, entry.getValue());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        	}
+		}
+	}
 	
 	public Cliente(Integer ident, String nombre, String apellido1, String apellido2, String dni, char clase,
 			Integer medioDeContacto, String comentarioContacto, String direccion, String cp, Date fechaNac, String localidad,

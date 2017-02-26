@@ -18,7 +18,7 @@ public class OcasoActions {
 		
 
 		ModelAndView vista=new ModelAndView();
-		vista.setViewName("jsonView");
+		vista.setViewName("index");
 		
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         Date parsed;

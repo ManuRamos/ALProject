@@ -1,5 +1,7 @@
 package com.hbm.impl;
 
+import java.util.HashMap;
+
 public class NombreProducto {
 	private Integer ident;
 	private String nombre;
@@ -12,6 +14,11 @@ public class NombreProducto {
 		super();
 		this.ident = ident;
 		this.nombre = nombre;
+	}
+
+	public NombreProducto(HashMap<String, Object> fieldList) {
+		this.ident = (Integer) fieldList.get("ident");
+		this.nombre = (String) fieldList.get("nombre");
 	}
 
 

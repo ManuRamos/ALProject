@@ -1,5 +1,9 @@
 package com.hbm.impl;
 
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 public class Usuario {
 	private Integer ident;
 	private String nombre;
@@ -23,6 +27,23 @@ public class Usuario {
 		this.nick = nick;
 		this.pass = pass;
 		this.email = email;
+	}
+
+	public Usuario(HashMap<String, Object> fieldList) {
+		
+		for(Entry<String, Object> entry : fieldList.entrySet()){
+        	String key=entry.getKey();        	
+        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
+
+    		Method method;
+			try {
+				method = this.getClass().getDeclaredMethod("set"+mapKey,entry.getValue().getClass());
+	    		method.invoke(this, entry.getValue());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public Integer getIdent() {

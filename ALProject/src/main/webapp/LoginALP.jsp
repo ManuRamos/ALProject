@@ -28,12 +28,22 @@ function lanzarHibernate(){
 }
 
 function errorfunc(msg){
+var i1=0;
+	
 	alert(msg);
 }
 </script>
 <body>
-<div id="idDiv" name="nameDiv">
-<button type="button" onclick="javascript:lanzarHibernate()">Click me </button>  
-</div>
+<h2>Spring Page Redirection</h2>
+<p>Click below button to redirect the result to new page</p>
+<form method="GET" action="ocaso/almacenar.alp">
+<table>
+    <tr>
+    <td>
+    <input type="submit" value="Redirect Page"/>
+    </td>
+    </tr>
+</table>  
+</form>
 </body>
 </html>

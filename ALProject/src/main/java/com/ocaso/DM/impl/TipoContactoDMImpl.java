@@ -25,24 +25,15 @@ public class TipoContactoDMImpl {
         return listado;
 	}
 
-	public static void saveOrUpdateTipoCampo(Session sessHbn, HashMap<String, Object> fieldListValue, TipoCampo prodCont) throws Exception{
-    	Class cls = Class.forName("com.hbm.impl.TipoCampo");
+	public static void saveOrUpdateTipoCampo(Session sessHbn, HashMap<String, Object> fieldListValue) throws Exception{
         
-        for(Entry<String, Object> entry : fieldListValue.entrySet()){
-        	String key=entry.getKey();
-        	
-        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
-
-    		//call the printIt method
-    		Method method = cls.getDeclaredMethod("set"+key,entry.getValue().getClass());
-    		method.invoke(prodCont, entry.getValue());
-        }
-        
-        sessHbn.saveOrUpdate(prodCont);
+		TipoCampo tipoCampo=new TipoCampo();
+		
+        sessHbn.saveOrUpdate(tipoCampo);
 
 	}
 
-	public static void deleteTipoCampoContratado(Session sessHbn, TipoCampo prodCont) {
-		sessHbn.delete(prodCont);
+	public static void deleteTipoCampoContratado(Session sessHbn, TipoCampo tipoCampo) {
+		sessHbn.delete(tipoCampo);
 	}
 }

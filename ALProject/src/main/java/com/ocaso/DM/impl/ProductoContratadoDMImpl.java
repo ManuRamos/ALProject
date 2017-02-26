@@ -42,18 +42,9 @@ public class ProductoContratadoDMImpl {
         return listado;
 	}
 
-	public static void saveOrUpdateProductoContratado(Session sessHbn, HashMap<String, Object> fieldListValue, ProductoContratado prodCont) throws Exception{
-    	Class cls = Class.forName("com.hbm.impl.ProductoContratado");
-        
-        for(Entry<String, Object> entry : fieldListValue.entrySet()){
-        	String key=entry.getKey();
-        	
-        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
+	public static void saveOrUpdateProductoContratado(Session sessHbn, HashMap<String, Object> fieldListValue) throws Exception{
 
-    		//call the printIt method
-    		Method method = cls.getDeclaredMethod("set"+key,entry.getValue().getClass());
-    		method.invoke(prodCont, entry.getValue());
-        }
+		ProductoContratado prodCont= new ProductoContratado(fieldListValue);
         
         sessHbn.saveOrUpdate(prodCont);
 

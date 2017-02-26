@@ -3,9 +3,9 @@
 
 <beans default-lazy-init="true">
 
-    <bean id="mostrarListaFormularios" class="org.springframework.web.servlet.view.JstlView">
+    <bean id="index" class="org.springframework.web.servlet.view.JstlView">
         <property name="url">
-            <value>/edoctor/formularios/mostrarListaFormularios.jsp</value>
+            <value>/WEB-INF/views/formularios/index.jsp</value>
         </property>
     </bean>
     <bean id="jsonView" class="org.springframework.web.servlet.view.json.JsonView"/>

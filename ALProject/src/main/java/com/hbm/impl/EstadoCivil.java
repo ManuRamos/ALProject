@@ -1,5 +1,9 @@
 package com.hbm.impl;
 
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 public class EstadoCivil {
 	private Integer ident;
 	private String descripcion;
@@ -12,6 +16,12 @@ public class EstadoCivil {
 		super();
 		this.ident = ident;
 		this.descripcion = descripcion;
+	}
+
+	public EstadoCivil(HashMap<String, Object> fieldList) {
+		super();
+		this.ident = (Integer) fieldList.get("ident");
+		this.descripcion = (String) fieldList.get("descripcion");
 	}
 
 	public Integer getIdent() {

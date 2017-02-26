@@ -25,24 +25,15 @@ public class NombreProductoDMImpl {
         return listado;
 	}
 
-	public static void saveOrUpdateNombreProducto(Session sessHbn, HashMap<String, Object> fieldListValue, NombreProducto NmP) throws Exception{
-    	Class cls = Class.forName("com.hbm.impl.NombreProducto");
-        
-        for(Entry<String, Object> entry : fieldListValue.entrySet()){
-        	String key=entry.getKey();
-        	
-        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
-
-    		//call the printIt method
-    		Method method = cls.getDeclaredMethod("set"+key,entry.getValue().getClass());
-    		method.invoke(NmP, entry.getValue());
-        }
+	public static void saveOrUpdateNombreProducto(Session sessHbn, HashMap<String, Object> fieldListValue) throws Exception{
+		
+		NombreProducto NmP= new NombreProducto (fieldListValue);
         
         sessHbn.saveOrUpdate(NmP);
 
 	}
 
-	public static void deleteNombreProducto(Session sessHbn, NombreProducto MdC) {
-		sessHbn.delete(MdC);
+	public static void deleteNombreProducto(Session sessHbn, NombreProducto NmP) {
+		sessHbn.delete(NmP);
 	}
 }

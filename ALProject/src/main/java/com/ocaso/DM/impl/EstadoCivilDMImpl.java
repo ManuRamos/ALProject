@@ -25,18 +25,9 @@ public class EstadoCivilDMImpl {
         return listado;
 	}
 	
-	public static void saveOrUpdateEstadoCivil(Session sessHbn, HashMap<String, Object> fieldListValue, EstadoCivil Ecv) throws Exception{
-    	Class cls = Class.forName("com.hbm.impl.EstadoCivil");
-        
-        for(Entry<String, Object> entry : fieldListValue.entrySet()){
-        	String key=entry.getKey();
-        	
-        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
+	public static void saveOrUpdateEstadoCivil(Session sessHbn, HashMap<String, Object> fieldListValue) throws Exception{
 
-    		//call the printIt method
-    		Method method = cls.getDeclaredMethod("set"+key,entry.getValue().getClass());
-    		method.invoke(Ecv, entry.getValue());
-        }
+    	EstadoCivil Ecv =new EstadoCivil(fieldListValue);
         
         sessHbn.saveOrUpdate(Ecv);
 

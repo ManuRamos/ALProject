@@ -8,5 +8,15 @@
         <property name="hibernate.connection.url">jdbc:oracle:thin:@127.0.0.1:1521:ALP</property>
         <property name="hibernate.connection.username">ADMINOCASO</property>
          <mapping resource="com/hbm/DM/cliente.hbm.xml"/>
+         <mapping resource="com/hbm/DM/CamposForm.hbm.xml"/>
+         <mapping resource="com/hbm/DM/EstadoCivil.hbm.xml"/>
+         <mapping resource="com/hbm/DM/Formulario.hbm.xml"/>
+         <mapping resource="com/hbm/DM/MedioContacto.hbm.xml"/>
+         <mapping resource="com/hbm/DM/NombreProducto.hbm.xml"/>
+         <mapping resource="com/hbm/DM/ProductoContratado.hbm.xml"/>
+         <mapping resource="com/hbm/DM/Provincia.hbm.xml"/>
+         <mapping resource="com/hbm/DM/Suplemento.hbm.xml"/>
+         <mapping resource="com/hbm/DM/TipoCampo.hbm.xml"/>
+         <mapping resource="com/hbm/DM/Usuario.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

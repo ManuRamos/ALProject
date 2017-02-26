@@ -25,6 +25,6 @@ function lanzarHibernate(){
 }
 </script>
 <body>
-<button type="button" onclick="javascript:lanzarHibernate()">Click me </button>  
+ <p>My mother has <span style="color:blue">blue</span> eyes.</p> 
 </body>
 </html>

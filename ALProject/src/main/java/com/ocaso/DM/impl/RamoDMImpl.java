@@ -25,24 +25,15 @@ public class RamoDMImpl {
         return listado;
 	}
 
-	public static void saveOrUpdateRamo(Session sessHbn, HashMap<String, Object> fieldListValue, Ramo prodCont) throws Exception{
-    	Class cls = Class.forName("com.hbm.impl.Ramo");
-        
-        for(Entry<String, Object> entry : fieldListValue.entrySet()){
-        	String key=entry.getKey();
-        	
-        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
+	public static void saveOrUpdateRamo(Session sessHbn, HashMap<String, Object> fieldListValue) throws Exception{
 
-    		//call the printIt method
-    		Method method = cls.getDeclaredMethod("set"+key,entry.getValue().getClass());
-    		method.invoke(prodCont, entry.getValue());
-        }
-        
-        sessHbn.saveOrUpdate(prodCont);
+		Ramo ramo= new Ramo(fieldListValue);
+		
+        sessHbn.saveOrUpdate(ramo);
 
 	}
 
-	public static void deleteRamoContratado(Session sessHbn, Ramo prodCont) {
-		sessHbn.delete(prodCont);
+	public static void deleteRamoContratado(Session sessHbn, Ramo ramo) {
+		sessHbn.delete(ramo);
 	}
 }

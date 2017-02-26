@@ -1,5 +1,7 @@
 package com.hbm.impl;
 
+import java.util.HashMap;
+
 public class MedioContacto {
 	
 	private Integer ident;
@@ -13,6 +15,11 @@ public class MedioContacto {
 		super();
 		this.ident = ident;
 		this.descripcion = descripcion;
+	}
+
+	public MedioContacto(HashMap<String, Object> fieldList) {
+		this.ident = (Integer) fieldList.get("ident");
+		this.descripcion = (String) fieldList.get("descripcion");
 	}
 
 	public Integer getIdent() {

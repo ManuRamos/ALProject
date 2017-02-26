@@ -26,18 +26,9 @@ public class CamposFormDMImpl {
         return listado;
 	}
 
-	public static void saveOrUpdateCamposForm(Session sessHbn, HashMap<String, Object> fieldListValue, CamposForm camF) throws Exception{
-    	Class cls = Class.forName("com.hbm.impl.CamposForm");
+	public static void saveOrUpdateCamposForm(Session sessHbn, HashMap<String, Object> fieldListValue) throws Exception{
         
-        for(Entry<String, Object> entry : fieldListValue.entrySet()){
-        	String key=entry.getKey();
-        	
-        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
-
-    		//call the printIt method
-    		Method method = cls.getDeclaredMethod("set"+key,entry.getValue().getClass());
-    		method.invoke(camF, entry.getValue());
-        }
+    	CamposForm camF =new CamposForm(fieldListValue);
         
         sessHbn.saveOrUpdate(camF);
 

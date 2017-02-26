@@ -1,5 +1,7 @@
 package com.hbm.impl;
 
+import java.util.HashMap;
+
 public class Ramo {
 	private Integer ident;
 	private String nombre;
@@ -12,6 +14,12 @@ public class Ramo {
 		super();
 		this.ident = ident;
 		this.nombre = nombre;
+	}
+
+	public Ramo(HashMap<String, Object> fieldList) {
+		super();
+		this.ident = (Integer) fieldList.get("ident");
+		this.nombre = (String) fieldList.get("nombre");
 	}
 
 	public Integer getIdent() {

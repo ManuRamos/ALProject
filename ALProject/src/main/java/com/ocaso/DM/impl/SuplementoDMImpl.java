@@ -25,24 +25,15 @@ public class SuplementoDMImpl {
         return listado;
 	}
 
-	public static void saveOrUpdateSuplemento(Session sessHbn, HashMap<String, Object> fieldListValue, Suplemento prodCont) throws Exception{
-    	Class cls = Class.forName("com.hbm.impl.Suplemento");
-        
-        for(Entry<String, Object> entry : fieldListValue.entrySet()){
-        	String key=entry.getKey();
-        	
-        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
+	public static void saveOrUpdateSuplemento(Session sessHbn, HashMap<String, Object> fieldListValue) throws Exception{
 
-    		//call the printIt method
-    		Method method = cls.getDeclaredMethod("set"+key,entry.getValue().getClass());
-    		method.invoke(prodCont, entry.getValue());
-        }
-        
-        sessHbn.saveOrUpdate(prodCont);
+		Suplemento suplemento=new Suplemento(fieldListValue);
+		
+        sessHbn.saveOrUpdate(suplemento);
 
 	}
 
-	public static void deleteSuplementoContratado(Session sessHbn, Suplemento prodCont) {
-		sessHbn.delete(prodCont);
+	public static void deleteSuplementoContratado(Session sessHbn, Suplemento suplemento) {
+		sessHbn.delete(suplemento);
 	}
 }

@@ -1,5 +1,7 @@
 package com.hbm.impl;
 
+import java.util.HashMap;
+
 public class Formulario {
 	private Integer ident;
 	private String nombre;
@@ -14,6 +16,13 @@ public class Formulario {
 		this.ident = ident;
 		this.nombre = nombre;
 		this.usuario = usuario;
+	}
+
+	public Formulario(HashMap<String, Object> fieldList) {
+		super();
+		this.ident = (Integer) fieldList.get("ident");
+		this.nombre = (String) fieldList.get("nombre");
+		this.usuario = (Integer) fieldList.get("usuario");
 	}
 
 	public Integer getIdent() {

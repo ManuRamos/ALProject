@@ -13,7 +13,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import com.hbm.impl.Cliente;
-import com.ocaso.DM.ClienteDM;
 
 public class ClienteDMImpl {
 
@@ -40,18 +39,9 @@ public class ClienteDMImpl {
         return listado;
 	}
 
-	public static void saveOrUpdateCliente(Session sessHbn, HashMap<String, Object> fieldListValue, Cliente cl) throws Exception{
-    	Class cls = Class.forName("com.hbm.impl.Cliente");
-        
-        for(Entry<String, Object> entry : fieldListValue.entrySet()){
-        	String key=entry.getKey();
-        	
-        	String mapKey = key.substring(0, 1).toUpperCase() + key.substring(1);
-
-    		//call the printIt method
-    		Method method = cls.getDeclaredMethod("set"+key,entry.getValue().getClass());
-    		method.invoke(cl, entry.getValue());
-        }
+	public static void saveOrUpdateCliente(Session sessHbn, HashMap<String, Object> fieldListValue) throws Exception{
+    	
+    	Cliente cl= new Cliente(fieldListValue);
         
         sessHbn.saveOrUpdate(cl);
 

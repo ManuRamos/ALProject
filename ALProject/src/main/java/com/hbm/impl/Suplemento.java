@@ -1,5 +1,7 @@
 package com.hbm.impl;
 
+import java.util.HashMap;
+
 public class Suplemento {
 	private Integer ident;
 	private Integer prod_pertenece;
@@ -16,6 +18,14 @@ public class Suplemento {
 		this.prod_pertenece = prod_pertenece;
 		this.activo = activo;
 		this.descripcion = descripcion;
+	}
+
+	public Suplemento(HashMap<String, Object> fieldList) {
+		super();
+		this.ident = (Integer) fieldList.get("ident");
+		this.prod_pertenece = (Integer) fieldList.get("prod_pertenece");
+		this.activo = (char) fieldList.get("activo");
+		this.descripcion = (String) fieldList.get("descripcion");
 	}
 
 	public Integer getIdent() {
