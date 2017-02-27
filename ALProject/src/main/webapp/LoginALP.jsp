@@ -36,7 +36,7 @@ var i1=0;
 <body>
 <h2>Spring Page Redirection</h2>
 <p>Click below button to redirect the result to new page</p>
-<form method="GET" action="ocaso/almacenar.alp">
+<form method="get" action="ocaso/almacenar.alp">
 <table>
     <tr>
     <td>

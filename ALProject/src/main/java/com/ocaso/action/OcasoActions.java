@@ -11,6 +11,7 @@ import com.ocaso.utils.HibernateUtil;
 
 import org.hibernate.Session;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 
 public class OcasoActions {
 	
@@ -57,6 +58,6 @@ public class OcasoActions {
 			vista.addObject("message", "Se ha producido un error!");
 		}
 		
-		return null;
+		return vista;
 	}
 }

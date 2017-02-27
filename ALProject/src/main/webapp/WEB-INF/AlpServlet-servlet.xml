@@ -17,17 +17,12 @@
         </property>
     </bean>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    <property name="prefix" value="/WEB-INF/views/formularios/" />
-    <property name="suffix" value=".jsp" />
-    </bean>
-
     <!-- Solucionador de Vistas -->
-<!--     <bean id="viewResolver" class="org.springframework.web.servlet.view.XmlViewResolver"> -->
-<!--         <property name="location"> -->
-<!--             <value>/WEB-INF/AlpServletViews.xml</value> -->
-<!--         </property> -->
-<!--     </bean> -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+        <property name="location">
+            <value>/WEB-INF/AlpServletViews.xml</value>
+        </property>
+    </bean>
 
 	<!-- inicio dgonzalez. mantisCAT 29179 -->
 	<bean id="OcasoController" class="org.springframework.web.servlet.mvc.multiaction.MultiActionController">

@@ -5,7 +5,19 @@
 
     <bean id="index" class="org.springframework.web.servlet.view.JstlView">
         <property name="url">
-            <value>/WEB-INF/views/formularios/index.jsp</value>
+            <value>/ocaso/views/formularios/index.jsp</value>
+        </property>
+    </bean>
+
+    <bean id="vistaCliente" class="org.springframework.web.servlet.view.JstlView">
+        <property name="url">
+            <value>/ocaso/views/formularios/vistaCliente.jsp</value>
+        </property>
+    </bean>
+
+    <bean id="vistaMantenimiento" class="org.springframework.web.servlet.view.JstlView">
+        <property name="url">
+            <value>/ocaso/views/formularios/vistaMantenimiento.jsp</value>
         </property>
     </bean>
     <bean id="jsonView" class="org.springframework.web.servlet.view.json.JsonView"/>
