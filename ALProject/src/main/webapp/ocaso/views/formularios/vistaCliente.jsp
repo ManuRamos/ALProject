@@ -5,8 +5,43 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/ALProject/static/includes/css/jquery-ui-1.8.7.css" type="text/css">
+<script src="/ALProject/static/includes/js/jquery-3.1.1.js"></script>
+<script src="/ALProject/static/includes/js/mio.js"></script>
 </head>
-<body>
- <p>Vista de <span style="color:blue">Clientes</span> en construccion.</p> 
+<script>
+function llamarServidor(){
+	
+	var urlstr="/ALProject/ocaso/loadForm.alp";
+	
+	$.ajax({
+	    type: "post", url: urlstr,
+	    success: function (data, text) {
+	        alert("ok");
+	    },
+	    error: function (request, status, error) {
+	        alert(request.responseText);
+	    }
+	});
+}
+
+function errorfunc(msg){
+var i1=0;
+	
+	alert(msg);
+}
+</script>
+<body onload="llamarServidor();">
+<h2>Spring Page Redirection</h2>
+<p>Click below button to redirect the result to new page</p>
+<form method="get" action="ocaso/almacenar.alp">
+<table>
+    <tr>
+    <td>
+    <input type="submit" value="Redirect Page"/>
+    </td>
+    </tr>
+</table>  
+</form>
 </body>
 </html>
